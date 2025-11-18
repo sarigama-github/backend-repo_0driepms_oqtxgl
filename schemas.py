@@ -38,6 +38,18 @@ class Product(BaseModel):
     category: str = Field(..., description="Product category")
     in_stock: bool = Field(True, description="Whether product is in stock")
 
+# Sleep app schemas
+class Sleepentry(BaseModel):
+    """
+    Sleep entries schema
+    Collection name: "sleepentry"
+    """
+    date: str = Field(..., description="Date of sleep session in YYYY-MM-DD")
+    bedtime: str = Field(..., description="Bedtime in HH:MM (24h)")
+    waketime: str = Field(..., description="Wake time in HH:MM (24h)")
+    quality: int = Field(3, ge=1, le=5, description="Sleep quality 1-5")
+    notes: Optional[str] = Field(None, description="Optional notes")
+
 # Add your own schemas here:
 # --------------------------------------------------
 
